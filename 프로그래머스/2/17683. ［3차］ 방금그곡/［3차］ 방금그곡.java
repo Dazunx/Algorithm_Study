@@ -1,36 +1,8 @@
+//코드
 import java.io.*;
 import java.util.*;
 
 class Solution {
-    /**
-    <문제 요약>
-    1. 기억한 멜로드로 방금 재생한 음악을 찾는다. 
-    2. 한 음악을 반복 재생할 때도 있어서 끝-처음이 연결될 수도 있다. 
-    3. 음악을 중간에 끊을 경우, 그 곡이 아닐 수도 있다. 
-    4. 재생 시간과 악보를 직접 비교한다. 
-        4-1. 음악제목, 재생 - 끝난 시각, 악보 제공
-        4-2. 각 음은 1분에 1개씩 재생, 처음부터 재생됨, 재생 시간이 음악보다 길면 처음부터 재반복, 그렇지 않으면 재생시간만큼만 재생. 
-        4-3. 조건이 일치하는 음악 => 재생 시간이 제일 긴 음악, 
-                재생 시간도 같으면 => 먼저 입력된 음악 
-        4-4. 조건이 일치하지않는 경우 => "(None)" 반환 
-        
-    5. 문제 조건 
-        5-1. 1 <= 기억하는 음 m <= 1439
-        5-2. 음악정보는 100개 이하 
-            5-2-1. 음악 정보 : 음익시작시각, 끝시각, 제목
-            5-2-2. 시각 HH:MM 형식 
-            5-2-3. 1자 <= 음악 제목 <= 64자
-            5-2-4. 1개 <= 악보 정보 <= 1439개
-        5-3. 음 종류 12개 : C, C#, D, D#, E, F, F#, G, G#, A, A#, B
-        
-        
-    <문제 전략>
-    1. 악보와 m(멜로디)을 #이 들어간 음을 변환한다. 
-    2. 
-    3. 
-    
-    */
-    
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
     
@@ -75,12 +47,10 @@ class Solution {
         
         while(!pq.isEmpty()) {
             Music music = pq.remove();
+            // 재생시간만큼 악보를 늘린다.
             makeParts(music);
-            
-            sb.setLength(0);
-            sb.append(music.parts);
-
-            if(sb.toString().contains(convertedM)) {
+          
+            if(music.parts.contains(convertedM)) {
                 return music.title;
             }
         }
