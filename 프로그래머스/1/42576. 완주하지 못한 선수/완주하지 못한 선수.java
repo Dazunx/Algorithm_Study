@@ -2,9 +2,8 @@ import java.io.*;
 import java.util.*;
 
 class Solution {
-    // 1. completion을 먼저 map에 넣는다. 만약 이미 존재하면 +1 
-    // 2. participant도 map에 똑같이 넣는다. 
-    // 3. 둘을 비교하면서 인원 수가 다르면 멈추고 리턴한다. 
+    // 1. participant을 먼저 map에 넣는다. 만약 이미 존재하면 +1 
+    // 2. completion을 순회하면서 map에서 -1씩 하고 마지막 남은 사람을 리턴한다. 
     public String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> map = new HashMap<>();
         
