@@ -1,0 +1,11 @@
+-- 대장균 개체의 ID(ID) 와 분류된 이름(COLONY_NAME)을 출력
+SELECT ID, 
+    CASE NTILE(4) OVER (ORDER BY SIZE_OF_COLONY DESC)
+        WHEN 1 THEN 'CRITICAL'
+        WHEN 2 THEN 'HIGH'
+        WHEN 3 THEN 'MEDIUM'
+        ELSE 'LOW'
+    END AS COLONY_NAME
+FROM ECOLI_DATA 
+-- 개체의 ID 에 대해 오름차순 정렬
+ORDER BY ID;
