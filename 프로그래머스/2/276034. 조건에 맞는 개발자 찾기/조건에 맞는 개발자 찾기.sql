@@ -1,0 +1,9 @@
+-- Python이나 C# 스킬을 가진 개발자의 정보를 조회
+SELECT DISTINCT ID, EMAIL, FIRST_NAME, LAST_NAME
+FROM DEVELOPERS D
+-- SKILL_CODE 파싱 (256, 1024가 들어가야 함)
+JOIN SKILLCODES S
+ON S.CODE & D.SKILL_CODE > 0
+WHERE S.NAME IN ('Python', 'C#')
+-- 오름차순 정렬
+ORDER BY D.ID;
